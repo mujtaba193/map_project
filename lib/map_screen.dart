@@ -16,6 +16,7 @@ class MapSample extends StatefulWidget {
 class MapSampleState extends State<MapSample> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
+  BitmapDescriptor iconPic = BitmapDescriptor.defaultMarker;
 
   final TextEditingController searchController = TextEditingController();
 
@@ -24,20 +25,15 @@ class MapSampleState extends State<MapSample> {
       target: LatLng(59.966694, 30.305694),
       tilt: 59.440717697143555,
       zoom: 19.151926040649414);
-  final Marker googleMarker = Marker(
-      markerId: MarkerId('kk'),
-      icon: BitmapDescriptor.defaultMarker,
-      position: LatLng(59.971366, 30.321330),
-      infoWindow: InfoWindow(title: 'leti') //37.431542, -122.095130
-      );
+
   final Marker googleMarker1 = Marker(
-      markerId: MarkerId('_kGooglePlex'),
+      markerId: MarkerId('_kGooglePlex1'),
       icon: BitmapDescriptor.defaultMarker,
       position: LatLng(60.003750, 30.287770),
       infoWindow: InfoWindow(title: 'dormitory') //37.431542, -122.095130
       );
   final Marker googleMarker2 = Marker(
-      markerId: MarkerId('_kGooglePlex'),
+      markerId: MarkerId('_kGooglePlex2'),
       icon: BitmapDescriptor.defaultMarker,
       position: LatLng(60.028248, 30.335376),
       infoWindow: InfoWindow(title: 'work') //37.431542, -122.095130
@@ -54,12 +50,15 @@ class MapSampleState extends State<MapSample> {
     getCurrentLucation();
     lat;
     longt;
+    iconPic;
     loadjson();
 
     super.initState();
   }
 
-  loadjson() async {
+  Marker? googleMarker;
+
+  Future loadjson() async {
     var jsondata = await DefaultAssetBundle.of(context)
         .loadString('assets/users_location.json');
     List<dynamic> userLocation = jsonDecode(jsondata);
@@ -74,6 +73,15 @@ class MapSampleState extends State<MapSample> {
             infoWindow: InfoWindow(title: e.username) //37.431542, -122.095130
             ))
         .toList();
+    BitmapDescriptor.fromAssetImage(
+            ImageConfiguration(size: Size(12, 12)), 'lib/images/chik.jpeg')
+        .then((value) => iconPic = value);
+    googleMarker = Marker(
+        markerId: MarkerId('kk'),
+        icon: iconPic,
+        position: LatLng(59.971366, 30.321330),
+        infoWindow: InfoWindow(title: 'leti') //37.431542, -122.095130
+        );
   }
 
   Marker? liveMarker;
@@ -145,15 +153,6 @@ class MapSampleState extends State<MapSample> {
                                     tilt: 59.440717697143555,
                                     zoom: 10)));
                           }
-
-                          liveMarker = Marker(
-                              markerId: MarkerId('_kGooglePlex'),
-                              icon: BitmapDescriptor.defaultMarkerWithHue(
-                                  BitmapDescriptor.hueYellow),
-                              position: LatLng(lat!, longt!),
-                              infoWindow: InfoWindow(
-                                  title: 'work') //37.431542, -122.095130
-                              );
                         },
                         icon: Icon(Icons.search),
                       )
@@ -163,11 +162,11 @@ class MapSampleState extends State<MapSample> {
                     child: GoogleMap(
                       mapType: MapType.hybrid,
                       markers: {
-                        ...googleMarkerList ?? [googleMarker],
-                        googleMarker,
+                        ...googleMarkerList ?? [googleMarker1],
+                        googleMarker ?? googleMarker1,
                         googleMarker1,
                         googleMarker2,
-                        liveMarker ?? googleMarker,
+                        liveMarker ?? googleMarker1,
                       },
                       initialCameraPosition: CameraPosition(
                           target: LatLng(lat ?? 55.78619841559829,
@@ -195,8 +194,8 @@ class MapSampleState extends State<MapSample> {
         child: FloatingActionButton(
           backgroundColor: Colors.blue,
           onPressed: () async {
+            setState(() {});
             {
-              loadjson();
               GoogleMapController controller = await _controller.future;
               await controller.animateCamera(CameraUpdate.newCameraPosition(
                   CameraPosition(
@@ -207,7 +206,7 @@ class MapSampleState extends State<MapSample> {
             }
 
             liveMarker = Marker(
-                markerId: MarkerId('_kGooglePlex'),
+                markerId: MarkerId('_Toby'),
                 icon: BitmapDescriptor.defaultMarkerWithHue(
                     BitmapDescriptor.hueYellow),
                 position: LatLng(lat!, longt!),
