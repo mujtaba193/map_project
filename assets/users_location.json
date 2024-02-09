@@ -1,0 +1,252 @@
+[
+  {
+    "username": "user1",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  {
+    "username": "user2",
+    "latitude": 34.0522,
+    "longitude": -118.2437
+  },
+  {
+    "username": "user3",
+    "latitude": 40.7128,
+    "longitude": -74.0060
+  },
+  {
+    "username": "user4",
+    "latitude": 51.5074,
+    "longitude": -0.1278
+  },
+  {
+    "username": "user5",
+    "latitude": 48.8566,
+    "longitude": 2.3522
+  },
+  {
+    "username": "user6",
+    "latitude": 35.6895,
+    "longitude": 139.6917
+  },
+  {
+    "username": "user7",
+    "latitude": 52.5200,
+    "longitude": 13.4050
+  },
+  {
+    "username": "user8",
+    "latitude": 55.7558,
+    "longitude": 37.6176
+  },
+  {
+    "username": "user9",
+    "latitude": -33.8688,
+    "longitude": 151.2093
+  },
+  {
+    "username": "user10",
+    "latitude": 41.9028,
+    "longitude": 12.4964
+  },
+  {
+    "username": "user11",
+    "latitude": 51.1657,
+    "longitude": 10.4515
+  },
+  {
+    "username": "user12",
+    "latitude": 55.6761,
+    "longitude": 12.5683
+  },
+  {
+    "username": "user13",
+    "latitude": -22.9068,
+    "longitude": -43.1729
+  },
+  {
+    "username": "user14",
+    "latitude": 19.4326,
+    "longitude": -99.1332
+  },
+  {
+    "username": "user15",
+    "latitude": -34.6037,
+    "longitude": -58.3816
+  },
+  {
+    "username": "user16",
+    "latitude": 40.4168,
+    "longitude": -3.7038
+  },
+  {
+    "username": "user17",
+    "latitude": -6.2088,
+    "longitude": 106.8456
+  },
+  {
+    "username": "user18",
+    "latitude": 22.3193,
+    "longitude": 114.1694
+  },
+  {
+    "username": "user19",
+    "latitude": 35.6894,
+    "longitude": 51.3890
+  },
+  {
+    "username": "user20",
+    "latitude": 41.3851,
+    "longitude": 2.1734
+  },
+  {
+    "username": "user21",
+    "latitude": 37.5665,
+    "longitude": 126.9780
+  },
+  {
+    "username": "user22",
+    "latitude": 25.2769,
+    "longitude": 55.2962
+  },
+  {
+    "username": "user23",
+    "latitude": 48.2082,
+    "longitude": 16.3738
+  },
+  {
+    "username": "user24",
+    "latitude": 59.3293,
+    "longitude": 18.0686
+  },
+  {
+    "username": "user25",
+    "latitude": -12.0464,
+    "longitude": -77.0428
+  },
+  {
+    "username": "user26",
+    "latitude": 55.7558,
+    "longitude": 37.6176
+  },
+  {
+    "username": "user27",
+    "latitude": 41.9028,
+    "longitude": 12.4964
+  },
+  {
+    "username": "user28",
+    "latitude": 48.8566,
+    "longitude": 2.3522
+  },
+  {
+    "username": "user29",
+    "latitude": 34.0522,
+    "longitude": -118.2437
+  },
+  {
+    "username": "user30",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  {
+    "username": "user31",
+    "latitude": 35.6895,
+    "longitude": 139.6917
+  },
+  {
+    "username": "user32",
+    "latitude": 52.5200,
+    "longitude": 13.4050
+  },
+  {
+    "username": "user33",
+    "latitude": 51.5074,
+    "longitude": -0.1278
+  },
+  {
+    "username": "user34",
+    "latitude": 40.7128,
+    "longitude": -74.0060
+  },
+  {
+    "username": "user35",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  {
+    "username": "user36",
+    "latitude": 34.0522,
+    "longitude": -118.2437
+  },
+  {
+    "username": "user37",
+    "latitude": 40.7128,
+    "longitude": -74.0060
+  },
+  {
+    "username": "user38",
+    "latitude": 51.5074,
+    "longitude": -0.1278
+  },
+  {
+    "username": "user39",
+    "latitude": 48.8566,
+    "longitude": 2.3522
+  },
+  {
+    "username": "user40",
+    "latitude": 35.6895,
+    "longitude": 139.6917
+  },
+  {
+    "username": "user41",
+    "latitude": 52.5200,
+    "longitude": 13.4050
+  },
+  {
+    "username": "user42",
+    "latitude": 55.7558,
+    "longitude": 37.6176
+  },
+  {
+    "username": "user43",
+    "latitude": -33.8688,
+    "longitude": 151.2093
+  },
+  {
+    "username": "user44",
+    "latitude": 41.9028,
+    "longitude": 12.4964
+  },
+  {
+    "username": "user45",
+    "latitude": 51.1657,
+    "longitude": 10.4515
+  },
+  {
+    "username": "user46",
+    "latitude": 55.6761,
+    "longitude": 12.5683
+  },
+  {
+    "username": "user47",
+    "latitude": -22.9068,
+    "longitude": -43.1729
+  },
+  {
+    "username": "user48",
+    "latitude": 19.4326,
+    "longitude": -99.1332
+  },
+  {
+    "username": "user49",
+    "latitude": -34.6037,
+    "longitude": -58.3816
+  },
+  {
+    "username": "user50",
+    "latitude": 40.4168,
+    "longitude": -3.7038
+  }
+]

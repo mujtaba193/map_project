@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+import 'package:map_project/user_marker_model.dart';
 
 class MapSample extends StatefulWidget {
   const MapSample({super.key});
@@ -44,14 +46,34 @@ class MapSampleState extends State<MapSample> {
   late PermissionStatus permission;
   double? lat;
   double? longt;
+  late List<UsersMarkers> usersLocationMarkers;
+  List<Marker>? googleMarkerList;
 
   @override
   void initState() {
     getCurrentLucation();
     lat;
     longt;
+    loadjson();
 
     super.initState();
+  }
+
+  loadjson() async {
+    var jsondata = await DefaultAssetBundle.of(context)
+        .loadString('assets/users_location.json');
+    List<dynamic> userLocation = jsonDecode(jsondata);
+    usersLocationMarkers =
+        userLocation.map((e) => UsersMarkers.fromJson(e)).toList();
+
+    googleMarkerList = usersLocationMarkers
+        .map((e) => Marker(
+            markerId: MarkerId(e.username),
+            icon: BitmapDescriptor.defaultMarker,
+            position: LatLng(e.latitude, e.longitude),
+            infoWindow: InfoWindow(title: e.username) //37.431542, -122.095130
+            ))
+        .toList();
   }
 
   Marker? liveMarker;
@@ -89,9 +111,10 @@ class MapSampleState extends State<MapSample> {
       body: RefreshIndicator(
         onRefresh: () async {
           getCurrentLucation();
+          loadjson();
         },
         child: FutureBuilder(
-            future: getCurrentLucation().timeout(Duration.zero),
+            future: loadjson(),
             builder: (context, snapshot) {
               return Column(
                 children: [
@@ -140,6 +163,7 @@ class MapSampleState extends State<MapSample> {
                     child: GoogleMap(
                       mapType: MapType.hybrid,
                       markers: {
+                        ...googleMarkerList ?? [googleMarker],
                         googleMarker,
                         googleMarker1,
                         googleMarker2,
@@ -169,8 +193,10 @@ class MapSampleState extends State<MapSample> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 100),
         child: FloatingActionButton(
+          backgroundColor: Colors.blue,
           onPressed: () async {
             {
+              loadjson();
               GoogleMapController controller = await _controller.future;
               await controller.animateCamera(CameraUpdate.newCameraPosition(
                   CameraPosition(
@@ -188,7 +214,11 @@ class MapSampleState extends State<MapSample> {
                 infoWindow: InfoWindow(title: 'work') //37.431542, -122.095130
                 );
           },
-          child: const Icon(Icons.navigation),
+          child: const Icon(
+            Icons.navigation,
+            size: 40,
+            color: Colors.redAccent,
+          ),
         ),
       ),
     );
