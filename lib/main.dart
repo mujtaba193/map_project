@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:map_project/map_screen.dart';
+import 'package:map_project/map_screen2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
-      home: MapSample(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
