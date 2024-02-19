@@ -62,12 +62,12 @@ class _HomePageState extends State<HomePage> {
   getDirections(List<Marker> markers, newSetState) async {
     List<LatLng> polylineCoordinates = [];
     List<PolylineWayPoint> polylineWayPoints = [];
-    for (var i = 0; i < markers.length; i++) {
+    /* for (var i = 0; i < markers.length; i++) {
       polylineWayPoints.add(PolylineWayPoint(
           location:
               "${markers[i].position.latitude.toString()},${markers[i].position.longitude.toString()}",
           stopOver: true));
-    }
+    }*/
 // result gets little bit late as soon as in video, because package // send http request for getting real road routes
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       'AIzaSyD_EXNQjjvmLVJE37nA8zVQdTPRDcQStYE', //GoogleMap ApiKey
